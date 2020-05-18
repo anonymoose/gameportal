@@ -1,5 +1,8 @@
+#p1 {background-color: red;}
+
 .App {
   text-align: center;
+  background-color: purple;
 }
 
 .App-logo {
@@ -14,18 +17,19 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  float: right;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  margin-top: 20px;
+  margin-right: 50px;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.SearchBox {
+  border-radius: 5px;
 }
 
 @keyframes App-logo-spin {
