@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from "yup";
+import { Button } from 'reactstrap';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ const SearchBar = () => {
       <Form>
         <label htmlFor="search">Search </label>
         <Field name="search" type="text"></Field>
-        <ErrorMessage name="search" />
+        <ErrorMessage name="search"/>
       </Form>
     </Formik>
   )
