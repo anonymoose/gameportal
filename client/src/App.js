@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css';
 import {Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from "yup";
-import { Button } from 'reactstrap';
+import { Button, Row, Col } from 'reactstrap';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         {/* <SignupForm/> */}
-        <SearchBar/>
+        <Layout/>
       </header>
     </div>
   );
@@ -31,11 +31,27 @@ const SearchBar = () => {
       }}
     >
       <Form>
-        <label htmlFor="search">Search </label>
-        <Field name="search" type="text"></Field>
-        <ErrorMessage name="search"/>
+        <Row>
+          <Col lg= {6}>
+            <Field name="search" type="text"></Field>
+            <ErrorMessage name="search"/>
+          </Col>
+          <Col lg= {6}>
+            <Button size="lg">Search</Button>
+          </Col>
+        </Row>
       </Form>
     </Formik>
+  )
+}
+
+const Layout = () => {
+  return(
+    <Row>
+      <Col xl={{ size: 5, offset: 4 }}>
+        <SearchBar/>
+      </Col>
+    </Row>
   )
 }
 
