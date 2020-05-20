@@ -13,7 +13,7 @@ const createCard = catchAsync(async (req, res) => {
 const getCards = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name']);
   const options = getQueryOptions(req.query);
-  const cards = await Card.find(filter, null, options);
+  const cards = await Card.search(filter, options);
   const response = cards.map((card) => card.transform());
   res.send(response);
 });

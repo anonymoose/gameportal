@@ -3,6 +3,8 @@ import './App.css';
 import {Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from "yup";
 import { Button, Row, Col } from 'reactstrap';
+import axios from 'axios'
+import _ from 'lodash'
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
   );
 }
 
-const SearchBar = () => {
+const SearchBar = ({setResultsProp}) => {
+
   return(
     <Formik
       initialValues={{search: '',}}
@@ -24,10 +27,10 @@ const SearchBar = () => {
           .max(500, 'Must be 500 or less')
       })}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 600);
+        axios.get(`http://localhost:4000/v1/cards/?name=${values.search}`)
+        .then(res => {
+          setResultsProp(res.data);
+        })
       }}
     >
       <Form>
@@ -45,14 +48,51 @@ const SearchBar = () => {
   )
 }
 
-const Layout = () => {
+const SearchResults = ({cards}) => {
+  return _.map(cards, card =>(
+    <SearchResult card={card} key={card.id}/>
+  ));
+}
+
+const SearchResult = ({card}) => {
+  console.log(card);
   return(
-    <Row>
-      <Col xl={{ size: 5, offset: 4 }}>
-        <SearchBar/>
-      </Col>
-    </Row>
+    <div>
+      {card.name}
+    </div>
   )
+}
+
+class Layout extends React.Component {
+  constructor (props){
+    super(props);
+    this.state = {
+      searchResults: [],
+    }
+    this.setResults = this.setResults.bind(this);
+  }
+
+  setResults(resultsFromSearchbar){
+    this.setState({searchResults: resultsFromSearchbar})
+  }
+
+  render(){
+    const {searchResults} = this.state;
+    return(
+      <>
+        <Row>
+          <Col xl={{ size: 5, offset: 4 }}>
+            <SearchBar setResultsProp={this.setResults}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <SearchResults cards={searchResults}/>
+          </Col>
+        </Row>
+      </>
+    )
+  }
 }
 
 // const SignupForm = () => {
