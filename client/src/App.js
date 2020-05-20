@@ -1,21 +1,32 @@
 import React from 'react';
 import './App.css';
-import {Formik, Field, Form, ErrorMessage} from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from "yup";
 import { Button, Row, Col } from 'reactstrap';
-import axios from 'axios'
-import _ from 'lodash'
+import axios from 'axios';
+import _ from 'lodash';
+import { BrowserRouter, Switch, Route, Link, withRouter} from 'react-router-dom';
+import queryString from 'query-string';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <SignupForm/> */}
-        <Layout/>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          {/* <SignupForm/> */}
+          <Switch>
+            <Route path='/card'>
+              <CardView/>
+            </Route>
+            <Route path='/'>
+              <SearchView/>
+            </Route>
+          </Switch>
+        </header>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 const SearchBar = ({setResultsProp}) => {
 
@@ -52,19 +63,57 @@ const SearchResults = ({cards}) => {
   return _.map(cards, card =>(
     <SearchResult card={card} key={card.id}/>
   ));
-}
+};
+
+class CardViewEx extends React.Component {
+  constructor (props){
+    super(props);
+    this.state = {
+      card: {},
+    }
+  }
+
+  componentDidMount(){
+    const { location } = this.props;
+    const parsed = queryString.parse(location.search);
+    const cardMongoID = parsed._id;
+    axios.get(`http://localhost:4000/v1/cards/${cardMongoID}`)
+        .then(res => {
+          this.setState({card: res.data});
+        });
+  }
+
+  render(){
+    const {card} = this.state;
+    if (card.id === undefined) {
+      return null;
+    };
+
+    return(
+      <img alt={card.name} src={card.image_uris.small}/>
+    );
+  };
+};
+
+const CardView = withRouter(CardViewEx);
 
 const SearchResult = ({card}) => {
   console.log(card);
   return(
     <div>
-      <img alt={card.name} src={card.image_uris.small}/>
+      <Link to={`/card?_id=${card._id}`}>
+        {card.image_uris !== undefined &&
+        <img alt={card.name} src={card.image_uris.small}/>}
+
+        {card.image_uris === undefined &&
+        <strong>NO IMAGE</strong>}
+        </Link>
       {card.name}
     </div>
   )
 }
 
-class Layout extends React.Component {
+class SearchView extends React.Component {
   constructor (props){
     super(props);
     this.state = {
