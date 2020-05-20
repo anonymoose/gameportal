@@ -58,6 +58,7 @@ const SearchResult = ({card}) => {
   console.log(card);
   return(
     <div>
+      <img alt={card.name} src={card.image_uris.small}/>
       {card.name}
     </div>
   )

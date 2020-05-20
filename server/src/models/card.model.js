@@ -104,7 +104,7 @@ const cardSchema = mongoose.Schema({
   },
 });
 
-const Card = mongoose.model('Card', cardSchema);
+let Card = null;
 
 cardSchema.methods.transform = function () {
   return this.toObject();
@@ -113,5 +113,7 @@ cardSchema.methods.transform = function () {
 cardSchema.statics.search = function (filter /* , options */) {
   return Card.find({ name: { $regex: filter.name, $options: 'i' } });
 };
+
+Card = mongoose.model('Card', cardSchema);
 
 module.exports = Card;
