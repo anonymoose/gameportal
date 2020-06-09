@@ -90,7 +90,19 @@ class CardViewEx extends React.Component {
     };
 
     return(
-      <img alt={card.name} src={card.image_uris.small}/>
+      <>
+        <Col lg= {2}></Col>
+        <Col lg= {8}>
+          <Row>
+            <Col lg= {4}>
+              <img alt={card.name} src={card.image_uris.small}/>
+            </Col>
+            <Col lg= {4}></Col>
+            <Col lg= {4}></Col>
+          </Row>
+        </Col>
+        <Col lg= {2}></Col>
+      </>
     );
   };
 };
