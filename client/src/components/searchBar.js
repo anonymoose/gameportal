@@ -8,8 +8,6 @@ import axios from 'axios';
 
 const SearchBar = ({setResultsProp}) => {
 
-    debugger;
-
     return(
       <Formik
         initialValues={{search: '',}}
@@ -26,16 +24,12 @@ const SearchBar = ({setResultsProp}) => {
       >
         <Form>
           <Row>
-              <Col lg= {4}>
-              </Col>
-              <Col lg= {3}>
+              <Col lg= {6}>
                 <Field name="search" type="text"></Field>
                 <ErrorMessage name="search"/>
               </Col>
-              <Col lg= {1}>
+              <Col lg= {6}>
                 <Button size="lg">Search</Button>
-              </Col>
-              <Col lg= {4}>
               </Col>
           </Row>
         </Form>

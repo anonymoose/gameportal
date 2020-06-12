@@ -3,7 +3,7 @@ import './App.css';
 import { Row, Col } from 'reactstrap';
 import _ from 'lodash';
 import { Link, } from 'react-router-dom';
-import { SearchBar } from './searchBar'
+import SearchBar from './searchBar'
 
 const SearchResults = ({cards}) => {
     return _.map(cards, card =>(
@@ -43,7 +43,6 @@ class SearchView extends React.Component {
   
     render(){
       const {searchResults} = this.state;
-      debugger;
       return(
         <>
           <Row>
