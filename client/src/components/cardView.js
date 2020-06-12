@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
-import _ from 'lodash';
+// import _ from 'lodash';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 
