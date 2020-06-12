@@ -92,3 +92,5 @@ class SearchView extends React.Component {
       )
     }
 }
+
+export default SearchView;

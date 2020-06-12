@@ -50,3 +50,4 @@ class CardViewEx extends React.Component {
   
   const CardView = withRouter(CardViewEx);
 
+  export default CardView;
