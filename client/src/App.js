@@ -5,7 +5,7 @@ import './App.css';
 // import _ from 'lodash';
 import { BrowserRouter, Switch, Route, } from 'react-router-dom';
 import CardView from './components/cardView';
-import SearchView from './components/searchView'
+import SearchView from './components/searchView/searchView'
 
 
 function App() {

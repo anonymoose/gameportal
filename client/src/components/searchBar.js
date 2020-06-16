@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from "yup";
 import { Button, Row, Col } from 'reactstrap';

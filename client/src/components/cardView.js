@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
 // import _ from 'lodash';

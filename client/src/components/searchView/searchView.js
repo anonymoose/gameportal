@@ -1,9 +1,10 @@
 import React from 'react';
-import './App.css';
 import { Row, Col } from 'reactstrap';
 import _ from 'lodash';
 import { Link, } from 'react-router-dom';
-import SearchBar from './searchBar'
+import SearchBar from '../searchBar'
+import './searchView.css';
+import '../commonCSS.css';
 
 const SearchResults = ({cards}) => {
     return _.map(cards, card =>(
@@ -15,16 +16,27 @@ const SearchResult = ({card}) => {
     console.log(card);
 
     return(
-      <div>
-        <Link to={`/card?_id=${card._id}`}>
-          {card.image_uris !== undefined &&
-          <img alt={card.name} src={card.image_uris.small}/>}
-  
-          {card.image_uris === undefined &&
-          <strong>NO IMAGE</strong>}
-          </Link>
-        {card.name}
-      </div>
+      <>
+        <Row className="searchView__margins-between-results">
+          <Col lg= {6}>
+            <Link to={`/card?_id=${card._id}`} className="all__float_right">
+              {card.image_uris !== undefined &&
+              <img alt={card.name} src={card.image_uris.small}/>}
+      
+              {card.image_uris === undefined &&
+              <strong>NO IMAGE</strong>}
+            </Link>
+          </Col>
+          <Col lg= {6}>
+            <Row lg= {6} className="all__bold">
+              {card.name}
+            </Row>
+            <Row lg= {6} className="all__text-align_left">
+              {card.oracle_text}
+            </Row>
+          </Col>
+        </Row>
+      </>
     )
 }
   
