@@ -28,7 +28,11 @@ const SearchResult = ({card}) => {
           </Col>
           <Col lg= {6}>
             <Row lg= {6} className="all__bold">
-              {card.name}
+              {card.name} {card.mana_cost}
+            </Row>
+            <Row>
+              <Col className="all__text-align_left">{card.rarity}</Col>
+              <Col className="all__text-align_right">{card.set_name}</Col>
             </Row>
             <Row lg= {6} className="all__text-align_left">
               {card.oracle_text}

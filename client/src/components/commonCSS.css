@@ -3,6 +3,10 @@
   text-align: left;
 }
 
+.all__text-align_right {
+  text-align: right;
+}
+
 .all__sansserif {
   font-family: sans-serif;
 }

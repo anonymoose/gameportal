@@ -9,6 +9,7 @@ import { SearchResults } from './components/searchView/searchView';
 import SearchBar from './components/searchBar';
 import { Row, Col } from 'reactstrap';
 import DarkMode from './components/darkMode/darkMode'
+import './components/commonCSS.css'
 
 
 
@@ -38,14 +39,13 @@ class App extends React.Component {
                   <CardView/>
                 </Route>
                 <Route path='/'>
-                  <Row className="App__menu-bar-background">
+                  <Row className="">
                     <Col>
                       <DarkMode/>
                     </Col>
-                    <Col xl={{ size: 5, offset: 4 }}>
+                    <Col>
                       <SearchBar setResultsProp={this.setResults}/>
                     </Col>
-                    <Col></Col>
                   </Row>
                   <Row>
                     <Col>
