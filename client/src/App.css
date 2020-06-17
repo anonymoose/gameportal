@@ -1,5 +1,10 @@
 #p1 {background-color: red;}
 
+body {
+  color: black !important;
+  background-color: #fcfcfc !important;
+}
+
 .App {
   text-align: center;
 }
@@ -37,4 +42,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.App__menu-bar-background {
+  background-color: darkblue;
 }

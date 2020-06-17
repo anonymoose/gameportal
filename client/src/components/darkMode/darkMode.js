@@ -1,0 +1,23 @@
+import React from 'react';
+import { Row, Col, Button } from 'reactstrap';
+import './darkMode.css';
+
+class DarkMode extends React.Component {
+    constructor (props){
+        super(props);
+        this.changeMode = this.changeMode.bind(this);
+    }
+
+    changeMode(){
+        const body = document.body;
+        body.classList.toggle("darkMode__night-mode");
+    }
+    
+    render(){
+        return(
+            <Button className="darkMode__button-color" onClick={this.changeMode}>Night Mode</Button>  
+        );
+    }
+};
+
+export default DarkMode;

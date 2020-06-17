@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Col } from 'reactstrap';
 import _ from 'lodash';
 import { Link, } from 'react-router-dom';
-import SearchBar from '../searchBar'
 import './searchView.css';
 import '../commonCSS.css';
 
@@ -40,36 +39,4 @@ const SearchResult = ({card}) => {
     )
 }
   
-class SearchView extends React.Component {
-    constructor (props){
-      super(props);
-      this.state = {
-        searchResults: [],
-      }
-      this.setResults = this.setResults.bind(this);
-    }
-  
-    setResults(resultsFromSearchbar){
-      this.setState({searchResults: resultsFromSearchbar})
-    }
-  
-    render(){
-      const {searchResults} = this.state;
-      return(
-        <>
-          <Row>
-            <Col xl={{ size: 5, offset: 4 }}>
-              <SearchBar setResultsProp={this.setResults}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <SearchResults cards={searchResults}/>
-            </Col>
-          </Row>
-        </>
-      )
-    }
-}
-
-export default SearchView;
+export { SearchResults };
