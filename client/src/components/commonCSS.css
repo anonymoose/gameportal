@@ -1,3 +1,6 @@
+body{
+  font-size: 16px;
+}
 
 .all__text-align_left {
   text-align: left;
@@ -5,6 +8,14 @@
 
 .all__text-align_right {
   text-align: right;
+}
+
+.all__text-align_center {
+  text-align: center;
+}
+
+.all__text-align_justify {
+  text-align: justify;
 }
 
 .all__sansserif {

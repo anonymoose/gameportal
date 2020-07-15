@@ -1,6 +1,8 @@
 import React from 'react';
-import { Row, Col, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import './darkMode.css';
+import '../commonCSS.css';
+
 
 class DarkMode extends React.Component {
     constructor (props){

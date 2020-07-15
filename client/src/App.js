@@ -4,7 +4,7 @@ import './App.css';
 // import * as Yup from "yup";
 // import _ from 'lodash';
 import { BrowserRouter, Switch, Route, } from 'react-router-dom';
-import CardView from './components/cardView';
+import CardView from './components/cardView/cardView';
 import { SearchResults } from './components/searchView/searchView';
 import SearchBar from './components/searchBar';
 import { Row, Col } from 'reactstrap';

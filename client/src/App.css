@@ -19,7 +19,7 @@ body {
 } */
 
 .App-header {
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   margin-top: 20px;
   margin-right: 50px;
 }
