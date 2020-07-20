@@ -47,8 +47,8 @@ class App extends React.Component {
                       <SearchBar setResultsProp={this.setResults}/>
                     </Col>
                   </Row>
-                  <Row>
-                    <Col>
+                  <Row style={{border: "1px solid purple"}}>
+                    <Col style={{border: "1px solid pink"}}>
                       <SearchResults cards={searchResults}/>
                     </Col>
                   </Row>
@@ -60,7 +60,7 @@ class App extends React.Component {
         <Row>
         </Row>
       </>
-    );  
+    );
   };
 }
 
