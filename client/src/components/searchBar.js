@@ -9,7 +9,7 @@ const SearchBar = ({setResultsProp}) => {
 
     return(
       <Formik
-        initialValues={{search: '',}}
+        initialValues={{search: 'Jadelight',}}
         validationSchema={Yup.object({
           search: Yup.string()
             .max(500, 'Must be 500 or less')

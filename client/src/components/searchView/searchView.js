@@ -16,8 +16,8 @@ const SearchResult = ({card}) => {
 
     return(
       <>
-        <Row className="searchView__margins-between-results">
-          <Col lg= {6}>
+        <Row className="searchView__margins-between-results" >
+          <Col style={{border: "1px solid red"}}>
             <Link to={`/card?_id=${card._id}`} className="all__float_right">
               {card.image_uris !== undefined &&
               <img alt={card.name} src={card.image_uris.small}/>}
@@ -26,15 +26,15 @@ const SearchResult = ({card}) => {
               <strong>NO IMAGE</strong>}
             </Link>
           </Col>
-          <Col lg= {6}>
-            <Row lg= {6} className="all__bold">
+          <Col style={{border: "1px solid green"}}>
+            <Row className="all__bold">
               {card.name} {card.mana_cost}
             </Row>
             <Row>
               <Col className="all__text-align_left">{card.rarity}</Col>
               <Col className="all__text-align_right">{card.set_name}</Col>
             </Row>
-            <Row lg= {6} className="all__text-align_left">
+            <Row className="all__text-align_left">
               {card.oracle_text}
             </Row>
           </Col>
